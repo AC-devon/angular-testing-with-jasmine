@@ -3,8 +3,7 @@ import { FormBuilder, RequiredValidator, Validators, FormGroup } from '@angular/
 
 @Component({
   selector: 'my-form',
-  templateUrl: './form.component.html',
-  styleUrls: [ './form.component.css' ]
+  template: ``
 })
 export class MyForm  {
   form: FormGroup;
