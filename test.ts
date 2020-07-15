@@ -6,4 +6,4 @@ import 'zone.js/dist/proxy';
 import 'zone.js/dist/jasmine-patch';
 import './app/app.component.spec';
 import './app/form/form.component.spec';
-import './app/todo/todo.component.spec';
+import './app/todos/todo.component.spec';
