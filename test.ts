@@ -5,3 +5,4 @@ import 'zone.js/dist/sync-test';
 import 'zone.js/dist/proxy';
 import 'zone.js/dist/jasmine-patch';
 import './app/app.component.spec';
+import './app/form/form.component.spec';

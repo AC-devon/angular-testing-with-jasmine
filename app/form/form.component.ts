@@ -10,7 +10,7 @@ export class MyForm  {
   constructor(private fb: FormBuilder){
     this.form = this.fb.group({
       name:["", Validators.required],
-      email: ["", Validators.required]
+      email: [""]
     })
   }
   saveForm(){}
