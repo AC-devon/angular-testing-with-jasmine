@@ -22,4 +22,28 @@ describe("TodosComponent", () => {
     // assert
     expect(component.todos.length).toBeGreaterThan(0);
   });
+
+  it("should call the server to add a new todo", () => {
+    // arrange
+    let spy = spyOn(service, "add").and.callFake(t => {
+      return Observable.empty();
+    });
+
+    // act
+    component.add();
+
+    // assert
+    expect(spy).toHaveBeenCalled();
+  });
+  it("should add the new todo return from the server", () => {
+    // arrange
+    let todo = { id: 1 };
+    let spy = spyOn(service, "add").and.returnValue(Observable.from([todo]));
+
+    // act
+    component.add();
+
+    // assert
+    expect(spy).toHaveBeenCalled();
+  });
 });
