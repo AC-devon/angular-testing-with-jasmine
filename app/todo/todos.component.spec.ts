@@ -37,19 +37,19 @@ describe("TodosComponent", () => {
   });
   it("should set the message property if server return error", () => {
     // arrange
-    let error = 'error from the server'
+    let error = "error from the server";
     let spy = spyOn(service, "add").and.returnValue(Observable.throw(error));
 
     // act
     component.add();
 
     // assert
-    expect(component.message).toBe(error)
+    expect(component.message).toBe(error);
   });
 
   it("should call the server to delete item if user confimed", () => {
     // arrange
-     spyOn(window, "confirm").and.returnValue(true);
+    spyOn(window, "confirm").and.returnValue(true);
     let spy = spyOn(service, "delete").and.returnValue(Observable.empty());
 
     // act
@@ -61,7 +61,8 @@ describe("TodosComponent", () => {
 
   it("should NOT call the server to delete item if user canceled", () => {
     // arrange
-    let spy =  spyOn(window, "confirm").and.returnValue(false);
+    spyOn(window, "confirm").and.returnValue(false);
+    let spy = spyOn(service, "delete").and.returnValue(Observable.empty());
 
     // act
     component.delete(1);
