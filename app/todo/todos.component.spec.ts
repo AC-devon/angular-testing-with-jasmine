@@ -49,9 +49,9 @@ describe("TodosComponent", () => {
 
   it("should call the server to delete item if user confimed", () => {
     // arrange
-    let error = 'error from the server'
      spyOn(window, "confirm").and.returnValue(true);
     let spy = spyOn(service, "delete").and.returnValue(Observable.empty());
+
     // act
     component.delete(1);
 
@@ -61,8 +61,8 @@ describe("TodosComponent", () => {
 
   it("should NOT call the server to delete item if user canceled", () => {
     // arrange
-    let error = 'error from the server'
     let spy =  spyOn(window, "confirm").and.returnValue(false);
+
     // act
     component.delete(1);
 
