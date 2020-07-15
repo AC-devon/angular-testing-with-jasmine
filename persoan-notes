@@ -36,3 +36,13 @@ triple A rule
 1. arange
 2. act
 3. assert
+
+
+// x before describe or it are present a canceld test;
+
+to check test coverage you need to run the following command in the cli:
+ng test --code-coverage
+
+how much to code coverage is best?
+around 70% for budget project
+other wise - complex logic testing only.
