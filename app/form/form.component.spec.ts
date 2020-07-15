@@ -1,7 +1,7 @@
 import { MyForm } from "./form.component";
 import { FormBuilder } from "@angular/forms";
 
-describe("formComponent", () => {
+describe("FormComponent", () => {
   
   let component: MyForm;
 

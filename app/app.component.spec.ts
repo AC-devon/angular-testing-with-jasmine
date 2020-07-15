@@ -9,11 +9,13 @@ from '@angular/platform-browser-dynamic/testing';
 
 
 describe('AppComponent', () => {
+    let appComponent: AppComponent;
     beforeAll( ()=> {
      TestBed.initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting());
   });
   beforeEach(
     async(() => {
+      appComponent = new AppComponent();
       TestBed.configureTestingModule({
         imports: [RouterTestingModule],
         declarations: [AppComponent]
@@ -31,7 +33,7 @@ describe('AppComponent', () => {
   );
   it('should return 0 if the input is negative', () =>{
     // arrange
-    const fixture = new AppComponent();
+    const fixture = appComponent
     
     // act
     const result = fixture.compute(-1);
@@ -40,8 +42,18 @@ describe('AppComponent', () => {
     expect(result).toBe(0);
   })
     it('should check if name contain string amir', () =>{
-    const fixture = new AppComponent();
+    const fixture = appComponent;
     const result = fixture.name;
     expect(result).toContain("amir");
+  })
+
+  it('should check name changed',()=> {
+    // arrange
+    let currentName = appComponent.name;
+    appComponent.nameChange.subscribe(nc => currentName = nc)
+    // act
+    appComponent.onNameChange();
+    // assets
+    expect(currentName).not.toContain('hey dan')
   })
 });
