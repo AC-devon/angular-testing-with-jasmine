@@ -12,7 +12,7 @@ describe('TodosComponent', () => {
 
   it('should return todo list from the server', () => {
     spyOn(service, 'getTodos').and.callFake(() =>{
-      return Observable.from([ [1,2,3] ])
+      //return Observable.from([ [1,2,3] ])
     })
   });
 
