@@ -1,0 +1,38 @@
+questions for TDD (test driven development)
+
+does TDD is replacement for manual testing?
+should i write TDD before code my app?
+how to define what i need to test? (key factors to test)
+
+pros and cons of creating TDD
+
+pros:
+1. create definition of result for each test
+2. prevent worrying about breaking the app when new feature added
+3. legacy code become less "scary" to handle
+4. save time for manual testing
+5. catch errors before release
+
+cons:
+1. write more code - production code + test code (time consuming)
+2. added learning curve
+3. refactor code may require rewrite test code
+4. decide when you need to TDD or not
+
+
+types of test
+1. unit test - test a component without any extrnal resources (in angular world it means, test component without his template. and use instance like service and routher as fake once)
+2. integration test - test a component with extrnal resources
+3. e2e test - test our app as a whole
+
+
+clean coding practice!
+1. small functions (10 line max)
+2. proper naming
+3. single responsibility 
+
+
+triple A rule
+1. arange
+2. act
+3. assert

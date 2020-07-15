@@ -1,0 +1,12 @@
+<form [formGroup]="form" (submit)="saveForm()">
+  <label for="name">Name</label>
+  <input formControlName="name" id="name"  />
+
+
+  <label for="email">Email</label>
+  <input formControlName="email" id="email" />
+
+
+
+  <button type="submit" [disabled]="!form.valid">Submit</button>
+</form>
