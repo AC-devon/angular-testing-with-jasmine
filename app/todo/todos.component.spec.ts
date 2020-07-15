@@ -35,15 +35,38 @@ describe("TodosComponent", () => {
     // assert
     expect(spy).toHaveBeenCalled();
   });
-  it("should add the new todo return from the server", () => {
+  it("should set the message property if server return error", () => {
     // arrange
-    let todo = { id: 1 };
-    let spy = spyOn(service, "add").and.returnValue(Observable.from([todo]));
+    let error = 'error from the server'
+    let spy = spyOn(service, "add").and.returnValue(Observable.throw(error));
 
     // act
     component.add();
 
     // assert
-    expect(spy).toHaveBeenCalled();
+    expect(component.message).toBe(error)
+  });
+
+  it("should call the server to delete item if user confimed", () => {
+    // arrange
+    let error = 'error from the server'
+     spyOn(window, "confirm").and.returnValue(true);
+    let spy = spyOn(service, "delete").and.returnValue(Observable.empty());
+    // act
+    component.delete(1);
+
+    // assert
+    expect(spy).toHaveBeenCalledWith(1);
+  });
+
+  it("should NOT call the server to delete item if user canceled", () => {
+    // arrange
+    let error = 'error from the server'
+    let spy =  spyOn(window, "confirm").and.returnValue(false);
+    // act
+    component.delete(1);
+
+    // assert
+    expect(spy).not.toHaveBeenCalled();
   });
 });
