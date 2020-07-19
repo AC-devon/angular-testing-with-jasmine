@@ -46,6 +46,6 @@ describe("vote component", () => {
     de.triggerEventHandler("click", null);
 
     // assert
-    expect(component.totalVotes).toBe(1)
+    expect(component.totalVotes).toBe(1);
   });
 });
