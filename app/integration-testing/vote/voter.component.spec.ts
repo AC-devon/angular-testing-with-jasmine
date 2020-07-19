@@ -29,12 +29,23 @@ describe("vote component", () => {
     expect(el.innerText).toContain(21);
   });
 
-    it("should check if icon is hightlight", () => {
+  it("should check if icon is hightlight", () => {
     component.myVote = 1;
     fixture.detectChanges();
 
-    let de = fixture.debugElement.query(By.css(".glyphicon-menu-down"));
+    let de = fixture.debugElement.query(By.css(".glyphicon-menu-up"));
 
-    expect(de.classes['highlighted']).toBeTruthy();
+    expect(de.classes["highlighted"]).toBeTruthy();
+  });
+
+  it("should increase total vote when i click upvote button", () => {
+    // arrange
+    let de = fixture.debugElement.query(By.css(".glyphicon-menu-up"));
+
+    // act
+    de.triggerEventHandler("click", null);
+
+    // assert
+    expect(component.totalVotes).toBe(1)
   });
 });
