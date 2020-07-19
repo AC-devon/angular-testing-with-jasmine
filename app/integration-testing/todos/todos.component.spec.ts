@@ -4,6 +4,9 @@ import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
 import { TodosComponent } from './todos.component';
+import { TodoService } from './todo.service';
+import { HttpModule } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 
 //NOTE: I've deliberately excluded this suite from running
 // because the test will fail. This is because we have not 
@@ -18,7 +21,9 @@ xdescribe('TodosComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ TodosComponent ]
+      imports: [HttpModule],
+      declarations: [ TodosComponent ],
+      providers:[TodoService]
     })
     .compileComponents();
   }));
@@ -31,5 +36,15 @@ xdescribe('TodosComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+    it('should get todo list from the server', () => {
+      // in module lvl
+      let todoService = TestBed.get(TodoService);
+      spyOn(todoService,'get').and.returnValue(Observable.from([ [1,2,3] ]))
+      // in component lvl
+     // let localInstaceTodos = fixture.debugElement.injector.get(TodoService)
+
+    expect(component.todos.length).toBe(3);
   });
 });
