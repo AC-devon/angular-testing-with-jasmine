@@ -22,7 +22,8 @@ describe('vote component', () =>{
   it('should check if total vote in rendered', () =>{
     component.othersVote = 21;
     component.myVote = 1;
-
+  fixture.detectChanges();
+  
     let de = fixture.debugElement.query(By.css('.vote-count'));
     let el: HTMLElement = de.nativeElement;
 
