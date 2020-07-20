@@ -9,3 +9,4 @@ import './app/unit-testing/form/form.component.spec';
 import './app/unit-testing/todo/todos.component.spec';
 import './app/integration-testing/vote/voter.component.spec';
 import './app/integration-testing/todos/todos.component.spec';
+import './app/integration-testing/user/user-details.component.spec';
