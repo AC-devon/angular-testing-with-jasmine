@@ -34,7 +34,7 @@ describe('UserDetailsComponent', () => {
       declarations: [ UserDetailsComponent ],
       providers: [
         { provide: Router, useClass: RouterStub },
-        { provide: Router, useClass: RouterStub }{ provide: ActivatedRoute, useClass: ActivatedRouteStub }
+        { provide: Router, useClass: RouterStub },{ provide: ActivatedRoute, useClass: ActivatedRouteStub }
       ]
     })
     .compileComponents();
